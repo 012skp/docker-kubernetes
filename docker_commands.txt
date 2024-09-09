@@ -1,7 +1,11 @@
 docker build -t budget --progress=plain --no-cache . && docker run --name budget-app --rm -p8080:8080 budget
 
+#Remove all images
 docker rmi -f $(docker images -aq)
 
 
-Brings up containers by building images(with caching)
+#Brings up containers by building images(with caching)
 docker compose up --build
+
+#Removes dangling images.
+docker image prune
